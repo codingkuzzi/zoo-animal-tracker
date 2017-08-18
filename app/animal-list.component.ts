@@ -16,11 +16,7 @@ import { Animal } from './animal.model';
       <option value="age2AndOlder" selected="selected">Animals 2 years of age and older</option>
     </select>
     <ul>
-      <li (click)="isDone(currentTask)" *ngFor="let currentAnimal of childAnimalList | completeness:filterByCompleteness">{{currentAnimal.species}} {{currentAnimal.name}}
-        <input *ngIf="currentAnimal.age < 2" type="checkbox" checked (click)="toggleDone(currentTask, false)"/>
-        <input *ngIf="currentTask.done === false" type="checkbox" (click)="toggleDone(currentTask, true)"/>
-        <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
-      </li>
+      <li (click)="isDone(currentTask)" *ngFor="let currentAnimal of childAnimalList>{{currentAnimal.species}} {{currentAnimal.name}}</li>
     </ul>
   `
 })
@@ -43,15 +39,15 @@ export class AnimalListComponent {
     @Output() clickSender = new EventEmitter();
 
     //used by task filter component
-    filterByCompleteness: string = "incompleteTasks"
-
-    toggleDone(clickedAnimal: Animal, setAge: boolean) {
-        clickedAnimal.age = setAge;
-    }
-
-    onChange(optionFromMenu) {
-        this.filterByCompleteness = optionFromMenu;
-    }
+    // filterByCompleteness: string = "incompleteTasks"
+    //
+    // toggleDone(clickedAnimal: Animal, setAge: boolean) {
+    //     clickedAnimal.age = setAge;
+    // }
+    //
+    // onChange(optionFromMenu) {
+    //     this.filterByCompleteness = optionFromMenu;
+    // }
 
     editButtonHasBeenClicked(animalToEdit: Animal) {
         this.clickSender.emit(animalToEdit);
