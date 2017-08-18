@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Zoo Animal Tracker {{month}}/{{day}}/{{year}}</h1>
+
+    <!-- animals list component goes here -->
+    <!-- The name of the child component's @Input() is on the left in [square brackets]. The data being passed from the parent component is on the right in "quotations". -->
+    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)" ></animal-list>
+    <hr>
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
+    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
+</div>

@@ -1,0 +1,20 @@
+{
+  "name": "zoo-animal-tracker",
+  "description": "angelar2 app",
+  "main": "",
+  "authors": [
+    "Anna Kuznetsova <aakuznetsova@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/codingkuzzi/zoo-animal-tracker.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
