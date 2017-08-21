@@ -9,29 +9,7 @@ import { Animal } from './animal.model';
 
 @Component({
     selector: 'animal-list',
-    template: `
-    <select (change)="onChange($event.target.value)">
-      <option value="allAnimals" selected="selected">All Animals</option>
-      <option value="ageLess2">Animals less than 2 years of age </option>
-      <option value="age2AndOlder" >Animals 2 years of age and older</option>
-    </select>
-    <div id="animal-list" *ngFor="let animal of childAnimalList | age:filterByAge">
-        <br>        
-        <p>----------</p>
-        <h3>SPECIES: {{animal.species}}</h3>
-        <h3>NAME: {{animal.name}}</h3>
-        <h3>AGE: {{animal.age}}</h3>
-        <h3>DIET: {{animal.diet}}</h3>
-        <h3>ZOO: {{animal.location}}</h3>
-        <h3>CARETAKERS: {{animal.caretakers}}</h3>
-        <h3>SEX: {{animal.sex}}</h3>
-        <h3>LIKES: {{animal.likes}}</h3>
-        <h3>DISLIKES: {{animal.dislikes}}</h3>
-        <p>----------</p>
-        <br>
-        <button (click)="editButtonHasBeenClicked(animal)">Edit</button>
-    </div>
-  `
+    templateUrl: "./app/animal-list.component.html"
 })
 
 export class AnimalListComponent {
@@ -73,6 +51,8 @@ export class AnimalListComponent {
             return "bg-warning";
         }
     }
+
+    filterByAge: string = "allAnimals";
 
     onChange(optionFromMenu){
         this.filterByAge = optionFromMenu;
