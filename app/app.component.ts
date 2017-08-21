@@ -7,11 +7,6 @@ import { Animal } from './animal.model';
 })
 
 export class AppComponent {
-    currentFocus: string = 'Angular Homework';
-    currentTime = new Date();
-    month: number = this.currentTime.getMonth() + 1;
-    day: number = this.currentTime.getDate();
-    year: number = this.currentTime.getFullYear();
 
     selectedAnimal: Animal = null;
 
