@@ -15,9 +15,22 @@ import { Animal } from './animal.model';
       <option value="ageLess2">Animals less than 2 years of age </option>
       <option value="age2AndOlder" selected="selected">Animals 2 years of age and older</option>
     </select>
-    <ul>
-      <li (click)="isDone(currentTask)" *ngFor="let currentAnimal of childAnimalList>{{currentAnimal.species}} {{currentAnimal.name}}</li>
-    </ul>
+    <div id="animal-list" *ngFor="let animal of childAnimalList | age:filterByAge">
+        <br>        
+        <p>----------</p>
+        <h3>SPECIES: {{animal.species}}</h3>
+        <h3>NAME: {{animal.name}}</h3>
+        <h3>AGE: {{animal.age}}</h3>
+        <h3>DIET: {{animal.diet}}</h3>
+        <h3>ZOO: {{animal.location}}</h3>
+        <h3>CARETAKERS: {{animal.caretakers}}</h3>
+        <h3>SEX: {{animal.sex}}</h3>
+        <h3>LIKES: {{animal.likes}}</h3>
+        <h3>DISLIKES: {{animal.dislikes}}</h3>
+        <p>----------</p>
+        <br>
+        <button (click)="editButtonHasBeenClicked(animal)">Edit</button>
+    </div>
   `
 })
 
@@ -61,6 +74,8 @@ export class AnimalListComponent {
         }
     }
 
-
+    onChange(optionFromMenu){
+        this.filterByAge = optionFromMenu;
+    }
 
 }
