@@ -11,9 +11,9 @@ import { Animal } from './animal.model';
     selector: 'animal-list',
     template: `
     <select (change)="onChange($event.target.value)">
-      <option value="allAnimals">All Animals</option>
+      <option value="allAnimals" selected="selected">All Animals</option>
       <option value="ageLess2">Animals less than 2 years of age </option>
-      <option value="age2AndOlder" selected="selected">Animals 2 years of age and older</option>
+      <option value="age2AndOlder" >Animals 2 years of age and older</option>
     </select>
     <div id="animal-list" *ngFor="let animal of childAnimalList | age:filterByAge">
         <br>        
